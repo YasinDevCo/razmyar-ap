@@ -1,0 +1,77 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-vazir), Arial, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-md: calc(var(--radius) * .8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: dark;
+  --background: oklch(0.13 0.025 235);
+  --foreground: oklch(0.94 0.018 220);
+  --card: oklch(0.17 0.03 235);
+  --card-foreground: oklch(0.94 0.018 220);
+  --popover: oklch(0.19 0.035 235);
+  --popover-foreground: oklch(0.94 0.018 220);
+  --primary: oklch(0.72 0.13 191);
+  --primary-foreground: oklch(0.12 0.025 235);
+  --secondary: oklch(0.22 0.035 235);
+  --secondary-foreground: oklch(0.85 0.02 220);
+  --muted: oklch(0.2 0.03 235);
+  --muted-foreground: oklch(0.62 0.035 220);
+  --accent: oklch(0.24 0.05 192);
+  --accent-foreground: oklch(0.88 0.03 190);
+  --destructive: oklch(0.65 0.18 25);
+  --border: oklch(0.29 0.035 235);
+  --input: oklch(0.24 0.035 235);
+  --ring: oklch(0.72 0.13 191);
+  --radius: 0.7rem;
+}
+
+* { @apply border-border; }
+html { background: var(--background); }
+body { @apply bg-background text-foreground; min-height: 100vh; }
+button, a, input { outline-offset: 3px; }
+:focus-visible { @apply outline-2 outline-ring; }
+::selection { background: oklch(0.72 0.13 191 / .25); }
+
+@media (max-width: 767px) {
+  .mobile-menu-open { overflow: hidden; }
+}
+
+.font-sans { font-family: var(--font-vazir), Arial, sans-serif; }
+.font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.dashboard-grid {
+  background-image: linear-gradient(to bottom, oklch(1 0 0 / .025) 1px, transparent 1px), linear-gradient(to left, oklch(1 0 0 / .025) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 5px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+
+@media (max-width: 767px) { .dashboard-grid { background-size: 28px 28px; } }
